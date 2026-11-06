@@ -1,0 +1,94 @@
+ :root {
+  --paper: #fffdf8; --ink: #292d28; --muted: #77796e; --green: #385c4c;
+  --green-dark: #244235; --gold: #b58d51; --line: #e7dfd1;
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; color: var(--ink); background: #f6f0e7; font-family: 'Manrope', sans-serif; }
+body::before, body::after { content: ""; position: fixed; z-index: -1; width: 370px; height: 370px; border-radius: 50%; filter: blur(3px); opacity: .5; pointer-events: none; }
+body::before { top: 130px; left: -220px; background: radial-gradient(circle, #d8e4d4, transparent 70%); }
+body::after { right: -220px; bottom: 0; background: radial-gradient(circle, #ead9bc, transparent 70%); }
+.topbar { height: 82px; padding: 0 clamp(20px, 5vw, 76px); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(83,91,75,.13); }
+.brand { display: flex; gap: 12px; align-items: center; color: var(--green-dark); text-decoration: none; font-weight: 700; font-size: 12px; letter-spacing: .08em; }
+.brand-mark { width: 39px; height: 39px; display: grid; place-items: center; border: 1px solid #c5b38f; border-radius: 50%; color: var(--gold); font-size: 21px; }
+.brand small { display: block; margin-top: 4px; color: #8b8b7d; font-size: 9px; letter-spacing: .2em; }
+.instagram { color: var(--green); text-decoration: none; font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+.top-instagram { border: 1px solid #d7d1c4; padding: 10px 14px; border-radius: 30px; transition: .2s; }
+.top-instagram:hover, .footer-ig:hover { background: var(--green); color: #fff; border-color: var(--green); }
+.ig-icon { font-size: 19px; line-height: 1; } .arrow { font-size: 15px; }
+.layout { width: min(1180px, calc(100% - 48px)); margin: 48px auto 72px; display: grid; grid-template-columns: 235px minmax(0,1fr); gap: clamp(28px,5vw,74px); align-items: start; }
+.sidebar { position: sticky; top: 24px; padding: 22px 0; }
+.eyebrow, .book-kicker { font-size: 10px; font-weight: 700; letter-spacing: .19em; color: #8b8c7d; }
+.sidebar h2 { font-family: 'Literata', serif; font-size: 23px; font-weight: 500; margin: 11px 0 24px; }
+.chapter-list { display: grid; gap: 7px; }
+.chapter-link { width: 100%; text-align: left; border: 1px solid transparent; background: transparent; padding: 12px 13px; border-radius: 10px; display: flex; gap: 12px; align-items: flex-start; color: #707368; cursor: pointer; font: 500 12px/1.5 'Manrope',sans-serif; transition: .2s; }
+.chapter-link .number { font-size: 10px; color: #a7a18f; font-weight: 700; padding-top: 2px; }
+.chapter-link:hover { background: rgba(255,255,255,.55); color: var(--green); }
+.chapter-link.active { color: var(--green-dark); background: rgba(255,255,255,.78); border-color: #e4ddcf; box-shadow: 0 4px 16px rgba(61,58,43,.04); font-weight: 700; }
+.chapter-link.active .number { color: var(--gold); }
+.side-note { margin-top: 34px; padding: 18px 16px; background: rgba(226,232,218,.6); border-radius: 12px; border: 1px solid #dce2d4; }
+.side-note span { color: var(--gold); font-size: 21px; }
+.side-note p { margin: 9px 0 0; color: #526352; font: italic 13px/1.8 'Literata',serif; }
+.reader { min-width: 0; }
+.book-heading { text-align: center; padding: 8px 0 30px; }
+.book-kicker { display: flex; align-items: center; justify-content: center; gap: 9px; }
+.book-kicker span { width: 20px; height: 1px; background: var(--gold); }
+.book-heading h1 { margin: 18px 0 9px; font: 600 clamp(34px,4.6vw,55px)/1.13 'Literata',serif; letter-spacing: -.04em; color: var(--green-dark); }
+.book-heading h1 span { display: block; margin-top: 8px; font: 600 16px 'Manrope',sans-serif; letter-spacing: .23em; color: var(--gold); }
+.subtitle { margin: 15px 0 22px; color: #77796e; font: 13px/1.7 'Literata',serif; }
+.heading-line { display: flex; align-items: center; justify-content: center; gap: 12px; color: var(--gold); }
+.heading-line span { height: 1px; width: 70px; background: #d9cbb3; }
+.page-card { background: var(--paper); border: 1px solid #e9e0d1; box-shadow: 0 20px 65px rgba(62,52,33,.07); border-radius: 4px; padding: clamp(24px,5vw,58px) clamp(22px,6vw,70px) 28px; min-height: 470px; position: relative; }
+.page-card::before { content: ""; position: absolute; inset: 9px; border: 1px solid #f0e9dd; pointer-events: none; }
+.page-top { position: relative; display: flex; justify-content: space-between; gap: 15px; color: #9b927f; font-size: 9px; letter-spacing: .18em; font-weight: 700; padding-bottom: 19px; border-bottom: 1px solid #eee7dc; }
+.page-content { position: relative; padding: 28px 0 25px; font: 16px/2 'Literata',serif; color: #46483f; }
+.page-content h2 { margin: 0 0 19px; color: var(--green-dark); font: 500 clamp(23px,3vw,31px)/1.4 'Literata',serif; }
+.page-content h3 { color: #876c42; font: 600 17px/1.6 'Literata',serif; margin: 25px 0 8px; }
+.page-content p { margin: 0 0 17px; }
+.page-content .lead { color: var(--green); font-size: 19px; line-height: 1.9; text-align: center; padding: 15px 0 23px; }
+.page-content blockquote { margin: 23px 0; padding: 16px 22px; border-left: 2px solid var(--gold); background: #f8f4eb; color: #6e6048; font-style: italic; }
+.page-content .quote-source { color: #9b927f; font: 600 11px 'Manrope',sans-serif; letter-spacing: .08em; }
+.page-bottom { position: relative; border-top: 1px solid #eee7dc; padding-top: 17px; display: flex; align-items: center; justify-content: center; gap: 13px; color: #a29b8c; font-size: 10px; letter-spacing: .08em; }
+.ornament { color: var(--gold); font-size: 16px; }
+.reader-controls { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 22px; }
+.nav-button { border-radius: 30px; padding: 12px 18px; font: 700 11px 'Manrope',sans-serif; cursor: pointer; transition: .2s; display: inline-flex; align-items: center; gap: 10px; }
+.nav-button:disabled { opacity: .35; cursor: not-allowed; }
+.nav-button.secondary { color: var(--green); background: transparent; border: 1px solid #d7d1c4; }
+.nav-button.primary { color: white; background: var(--green); border: 1px solid var(--green); }
+.nav-button:not(:disabled):hover { transform: translateY(-2px); box-shadow: 0 6px 15px #344b351a; }
+.page-dots { display: flex; align-items: center; justify-content: center; gap: 7px; flex-wrap: wrap; }
+.page-dot { width: 7px; height: 7px; border: 0; border-radius: 50%; background: #d8d0c1; padding: 0; cursor: pointer; transition: .2s; }
+.page-dot.active { background: var(--green); transform: scale(1.45); }
+.keyboard-hint { text-align: center; color: #a09b8e; font-size: 10px; margin-top: 15px; }
+.footer { text-align: center; padding: 28px 20px 25px; border-top: 1px solid rgba(83,91,75,.13); color: #818275; font-size: 11px; }
+.footer-symbol { color: var(--gold); font-size: 21px; }
+.footer-message { margin: 8px 0 13px; font: italic 13px 'Literata',serif; }
+.footer-ig { display: inline-flex; align-items: center; gap: 8px; border: 1px solid #d7d1c4; border-radius: 30px; padding: 8px 13px; color: var(--green); text-decoration: none; font-weight: 700; transition: .2s; }
+.credit { margin: 22px 0 0; color: #999486; font-size: 10px; letter-spacing: .06em; }
+.credit strong { color: var(--green); }
+@media (max-width: 780px) {
+ .topbar { height: 72px; padding: 0 18px; }
+ .layout { width: min(620px,calc(100% - 30px)); margin: 25px auto 48px; display: flex; flex-direction: column; gap: 24px; }
+ .sidebar { position: static; padding: 0; width: 100%; }
+ .sidebar h2 { margin-bottom: 13px; }
+ .chapter-list { display: flex; overflow-x: auto; padding: 2px 1px 8px; gap: 8px; }
+ .chapter-link { min-width: max-content; width: auto; padding: 10px 12px; border-color: #e6dfd3; background: rgba(255,255,255,.5); }
+ .side-note { display: none; }
+ .reader { width: 100%; }
+ .book-heading { padding-top: 5px; }
+ .page-card { min-height: 400px; }
+ .page-content { font-size: 15px; }
+ .reader-controls { gap: 8px; }
+ .nav-button { padding: 11px 13px; }
+}
+@media (max-width: 420px) {
+ .brand { font-size: 10px; gap: 8px; }
+ .brand-mark { width: 33px; height: 33px; }
+ .top-instagram { padding: 9px 10px; font-size: 10px; gap: 5px; }
+ .book-heading h1 { font-size: 35px; }
+ .subtitle { font-size: 12px; }
+ .page-card { padding: 25px 22px 23px; }
+ .page-top { font-size: 8px; }
+ .page-content { font-size: 14px; line-height: 1.9; }
+ .nav-button { font-size: 10px; gap: 5px; padding: 10px 11px; }
+ .page-dots { gap: 6px; }
+}
